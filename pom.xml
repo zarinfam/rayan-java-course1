@@ -17,7 +17,7 @@
                 <executions>
                     <execution>
                         <phase>
-                            install
+                            package
                         </phase>
                         <goals>
                             <goal>java</goal>
