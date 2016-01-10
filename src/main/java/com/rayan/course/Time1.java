@@ -9,7 +9,8 @@ public class Time1 {
     private int minute;
     private int second;
 
-    public void setTime(int hour, int minute, int second) {
+    public Time1(int hour, int minute, int second) {
+
         if (hour < 0 || hour >= 24 || minute < 0 || minute >= 60 ||
                 second < 0 || second >= 60) {
             throw new IllegalArgumentException(
@@ -21,8 +22,20 @@ public class Time1 {
         this.second = second;
     }
 
-    public String getTimeString(){
-        return hour + ":" + minute + ":" + second;
+    public Time1() {
+        this(0, 0, 0);
     }
 
+    public Time1(int hour) {
+        this(hour, 0, 0);
+    }
+
+    public Time1(int hour, int minute) {
+        this(hour, minute, 0);
+    }
+
+    @Override
+    public String toString() {
+        return hour + ":" + minute + ":" + second;
+    }
 }
