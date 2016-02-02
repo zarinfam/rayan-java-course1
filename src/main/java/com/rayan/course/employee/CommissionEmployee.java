@@ -10,6 +10,7 @@ public class CommissionEmployee extends Object {
     private double grossSales; // gross weekly sales
     private double commissionRate; // commission percentage
 
+
     // five-argument constructor
     public CommissionEmployee(String firstName, String lastName,
                               String socialSecurityNumber, double grossSales,
@@ -84,5 +85,25 @@ public class CommissionEmployee extends Object {
                 "social security number", socialSecurityNumber,
                 "gross sales", grossSales,
                 "commission rate", commissionRate);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) {
+            return false;
+        }
+
+        if (!(o instanceof CommissionEmployee)) {
+            return false;
+        }
+
+        CommissionEmployee other = (CommissionEmployee) o;
+
+        return this.getSocialSecurityNumber() == other.getSocialSecurityNumber();
+    }
+
+    @Override
+    public int hashCode() {
+        return Integer.parseInt(getSocialSecurityNumber());
     }
 }
