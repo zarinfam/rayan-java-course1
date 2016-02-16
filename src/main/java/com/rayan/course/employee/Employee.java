@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Created by saeed on 1/10/16.
  */
-public abstract class Employee {
+public abstract class Employee implements Payable{
     private final String firstName;
     private final String lastName;
     private final String socialSecurityNumber;
@@ -17,6 +17,12 @@ public abstract class Employee {
     }
 
     public abstract double earnings();
+
+    @Override
+    public double getPaymentAmount() {
+        return earnings();
+    }
+
 
     public String getFirstName() {
         return firstName;
