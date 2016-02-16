@@ -1,4 +1,4 @@
-package com.rayan.course;
+package com.rayan.course.files;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -12,12 +12,11 @@ public class Files {
 
     public static void main(String[] args) {
 
-        FileInputStream in = null;
-        FileOutputStream out = null;
 
-        try {
-            in = new FileInputStream("pom.xml");
-            out = new FileOutputStream("pom.txt");
+        try (
+                FileInputStream in = new FileInputStream("pom.xml");
+                FileOutputStream out = new FileOutputStream("pom.txt")
+        ) {
 
             int c;
 
@@ -29,17 +28,6 @@ public class Files {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            try {
-                if (in != null) {
-                    in.close();
-                }
-                if (out != null) {
-                    out.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
 
     }
