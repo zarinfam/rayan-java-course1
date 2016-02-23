@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Created by saeed on 1/10/16.
  */
-public abstract class Employee implements Payable{
+public abstract class Employee implements Payable, Comparable<Employee>{
     private final String firstName;
     private final String lastName;
     private final String socialSecurityNumber;
@@ -39,5 +39,10 @@ public abstract class Employee implements Payable{
     @Override
     public String toString() {
         return "Employee";
+    }
+
+    @Override
+    public int compareTo(Employee o) {
+        return (int) (earnings() - o.earnings());
     }
 }
